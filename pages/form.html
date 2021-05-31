@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script defer src="./../public/assets/js/form.js"></script>
+  <link rel="stylesheet" href="./../public/assets/css/styles.css">
+  <title>Onsenfou | Formulaire</title>
+</head>
+
+<body id="root" class="wrap">
+    <header class="header">
+      <nav class="nav">
+        <ul class="block-nav">
+          <li class="list-block">
+            <a href="./../home.html" class="link-list">Home</a>
+          </li>
+          <li class="list-block">
+            <a href="/" class="link-list">Form</a>
+          </li>
+          <li class="list-block">
+            <a href="./snippet.html" class="link-list">Profil</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="haut">
+    <section class="section">
+      <form id="leForm" method="post" class="form">
+        <fieldset class="border-form">
+        <legend class="title-form">S'inscrire à la Teams rockets.</legend>
+
+        <label for="surname" class="label-form">
+          <input id="surname" name="surname" type="text" placeholder="Choisissez votre surnom" >
+          <span id="excSurname" class="d_none"></span>
+        </label>
+
+        <label for="pass" class="label-form">
+          <input id="pass" name="pass" type="password" placeholder="entrer votre code" >
+          <span id="excPass" class="d_none"></span>
+        </label>
+
+        <label for="cpass" class="label-form">
+          <input id="cpass" name="cpass" type="password" placeholder="confirmez votre code" >
+          <span id="excCpass" class="d_none"></span>
+        </label>
+
+
+        <button type="submit" value="Envoyez">Envoyez</button>
+        <button value="Annuler" onclick="reset()">Annuler</button>
+      </fieldset>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
