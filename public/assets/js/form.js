@@ -4,8 +4,7 @@ const theForm = document.getElementById('leForm');
 // button reset
 const reset = e => e.preventDefault();
 
-// jean pierre || jean-pierre, pas de jean-pierre
-
+// regex
 const text = /([a-z]{4,12}(?:)[ -\S][a-z]{1,12})/;
 const filpass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
 
@@ -14,7 +13,7 @@ const exc1 = document.getElementById("excSurname");
 const exc2 = document.getElementById("excPass");
 const exc3 = document.getElementById("excCpass");
 
-// @descr : ecouter l'event du form, fucntion(e)
+// @descr : ecouter l'event du form, function(e)
 theForm.addEventListener('submit', e => {
 
   // values
@@ -47,7 +46,6 @@ theForm.addEventListener('submit', e => {
     e.preventDefault();
 
   } else if(text.test(!surname.value)) {
-    // la deco
     exc1.classList.remove('d_none');
     exc1.setAttribute('class', 'error');
     exc1.textContent = `${surname.value} n'est pas autorisée`;
@@ -69,6 +67,14 @@ theForm.addEventListener('submit', e => {
     console.log(pass.value);
     e.preventDefault();
 
+  } else if(pass.value.length < 8) {
+    exc2.classList.remove('d_none');
+    exc2.setAttribute('class', 'error');
+    exc2.textContent = "Votre mot de passe doit contenir moins de 8 caractères.";
+    pass.focus();
+    e.preventDefault();
+
+
   } else if(pass.value != cpass.value) {
     exc3.classList.remove('d_none');
     exc3.setAttribute('class', 'error');
@@ -76,12 +82,11 @@ theForm.addEventListener('submit', e => {
     cpass.focus();
     e.preventDefault();
 
-  } else if(surname.exc1 && pass.exc2 && cpass.exc3) {
     //si c'est valide, il y as redirection
+  } else {
     document.location.href ="snippet.html";
     e.preventDefault();
-  } else {
-    return false;
+    return;
   }
 
-})
+});
